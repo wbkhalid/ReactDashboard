@@ -2,7 +2,7 @@ import { Box, Typography, useTheme } from '@mui/material';
 import { useState } from 'react';
 import { Sidebar, Menu, MenuItem, useProSidebar } from 'react-pro-sidebar';
 import { tokens } from '../../theme';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MenuOutlined from '@mui/icons-material/MenuOutlined';
 import HomeOutlined from '@mui/icons-material/HomeOutlined';
 import PeopleOutlined from '@mui/icons-material/PeopleOutlined';
@@ -15,7 +15,9 @@ import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
 import StackedLineChartOutlinedIcon from '@mui/icons-material/StackedLineChartOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+import Team from '../team';
 const SideBarPro = () => {
+  const Navigate = useNavigate();
   const { collapseSidebar } = useProSidebar();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -34,16 +36,46 @@ const SideBarPro = () => {
               justifyContent: 'space-between',
             }}
           ></MenuItem>
-          <MenuItem icon={<HomeOutlined />}>Dashboard</MenuItem>
-          <Typography variant='h6' sx={{m:'10px 0px 5px 65px'}}>Data</Typography>
-          <MenuItem icon={<PeopleOutlined />}>Manage Team</MenuItem>
-          <MenuItem icon={<ContactsOutlined />}>Contacts</MenuItem>
-          <MenuItem icon={<ReceiptOutlined />}>Invoices Balance</MenuItem>
-          <Typography variant='h6' sx={{m:'10px 0px 5px 65px'}}>Pages</Typography>
+          <MenuItem icon={<HomeOutlined />} onClick={() => Navigate('/')}>
+            Dashboard
+          </MenuItem>
+          <Typography
+            variant="subtitle1"
+            sx={{ m: '10px 0px 5px 65px', fontWeight: 'bold' }}
+          >
+            Data
+          </Typography>
+
+          <MenuItem icon={<PeopleOutlined />} onClick={() => Navigate('/team')}>
+            Manage Team
+          </MenuItem>
+          <MenuItem
+            icon={<ContactsOutlined />}
+            onClick={() => Navigate('/contact')}
+          >
+            Contacts
+          </MenuItem>
+          <MenuItem
+            icon={<ReceiptOutlined />}
+            onClick={() => Navigate('/invoices')}
+          >
+            Invoices Balance
+          </MenuItem>
+          <Typography
+            variant="subtitle1"
+            sx={{ m: '10px 0px 5px 65px', fontWeight: 'bold' }}
+          >
+            Pages
+          </Typography>
           <MenuItem icon={<PersonOutlinedIcon />}>Profile Form</MenuItem>
           <MenuItem icon={<CalendarTodayOutlined />}>Calendar</MenuItem>
           <MenuItem icon={<LiveHelpRoundedIcon />}>FAQ</MenuItem>
-          <Typography variant='h6' sx={{m:'10px 0px 5px 65px'}}>Charts</Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{ m: '10px 0px 5px 65px', fontWeight: 'bold' }}
+          >
+            Charts
+          </Typography>
           <MenuItem icon={<BarChartOutlinedIcon />}>Bar Chart</MenuItem>
           <MenuItem icon={<PieChartOutlineOutlinedIcon />}>Pie Chart</MenuItem>
           <MenuItem icon={<StackedLineChartOutlinedIcon />}>
