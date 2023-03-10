@@ -67,21 +67,31 @@ const SideBarPro = () => {
           >
             Pages
           </Typography>
-          <MenuItem icon={<PersonOutlinedIcon />}>Profile Form</MenuItem>
-          <MenuItem icon={<CalendarTodayOutlined />}>Calendar</MenuItem>
-          <MenuItem icon={<LiveHelpRoundedIcon />}>FAQ</MenuItem>
+          <MenuItem
+            icon={<PersonOutlinedIcon />}
+            onClick={() => Navigate('/form')}
+          >
+            Profile Form
+          </MenuItem>
+          <MenuItem
+            icon={<CalendarTodayOutlined />}
+            onClick={() => Navigate('/calendar')}
+          >
+            Calendar
+          </MenuItem>
+          <MenuItem icon={<LiveHelpRoundedIcon />} onClick={() => Navigate('/faq')}>FAQ</MenuItem>
           <Typography
             variant="subtitle1"
             sx={{ m: '10px 0px 5px 65px', fontWeight: 'bold' }}
           >
             Charts
           </Typography>
-          <MenuItem icon={<BarChartOutlinedIcon />}>Bar Chart</MenuItem>
-          <MenuItem icon={<PieChartOutlineOutlinedIcon />}>Pie Chart</MenuItem>
-          <MenuItem icon={<StackedLineChartOutlinedIcon />}>
+          <MenuItem icon={<BarChartOutlinedIcon />}  onClick={() => Navigate('/bar')}>Bar Chart</MenuItem>
+          <MenuItem icon={<PieChartOutlineOutlinedIcon />} onClick={() => Navigate('/pie')}>Pie Chart</MenuItem>
+          <MenuItem icon={<StackedLineChartOutlinedIcon />} onClick={() => Navigate('/line')}>
             Line Chart
           </MenuItem>
-          <MenuItem icon={<MapOutlinedIcon />}>GeoGraphy Chart</MenuItem>
+          <MenuItem icon={<MapOutlinedIcon />} onClick={() => Navigate('/geography')}>GeoGraphy Chart</MenuItem>
         </Menu>
       </Sidebar>
     </Box>
